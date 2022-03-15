@@ -16,5 +16,6 @@ class News extends Model
         'content',
         'foto',
         'user_id',
+        'publish',
     ];
 }

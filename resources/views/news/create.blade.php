@@ -1,6 +1,8 @@
 @extends('layouts/app')
 @section('titleblock')Авторизація @endsection
 @section('content')
+<@include('layouts.side_panel')
+<div class="main">
 <form  action="{{route('news.store')}}" enctype="multipart/form-data" method="POST">   
         @csrf
     <input type="text" size="50" name='title' placeholder="Заголовок">
@@ -11,4 +13,5 @@
         <br><br>
         <input type="submit" value="Добавити новину">
     </form>
+    </div>
     @endsection

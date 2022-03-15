@@ -19,9 +19,9 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->text('foto');
+            $table->boolean('publish')->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

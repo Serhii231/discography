@@ -15,6 +15,24 @@ class NewsController extends Controller
         ]);
     }
 
+    public function show() 
+    {
+        return view('news.show', [
+            'news' => News::query()->paginate(15)
+        ]);
+    }
+
+    public function togglePublishStatus(int $id) 
+    {
+        $news = News::query()
+            ->findOrFail($id);
+
+        $news->publish = !$news->publish;
+        $news->saveOrFail();
+
+        return redirect()->route('news.show')->with('success', 'Новина успішно змінила статус.');
+    }
+
     public function create() 
     {
         return view('news.create');
@@ -32,7 +50,7 @@ class NewsController extends Controller
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'foto' => $request->input('foto'),
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->id(),
         ]);
 
         return redirect()->route('main')->with('success', 'Новина успішно збережена.');

@@ -10,6 +10,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AddNewsController;
 use App\Http\Controllers\DiscographyHistoryController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\VereficationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -28,14 +29,16 @@ Route::get('/registration', [RegistrationController::class, 'index'])->name('reg
 Route::POST('/registration/submit', [RegistrationController::class, 'registration'])->name('registration_check');
 Route::POST('/authorization_submit', [AuthorizationController::class, 'authorization'])->name('authorization_submit');
 Route::get('/exit', [AuthorizationController::class, 'exit'])->name('exit');
-
+Route::get('/adminpanel', [AdminPanelController::class, 'index'])->name('adminpanel.index');
 Route::group([
     'prefix' => 'news',
     'as' => 'news.'
 ], function() {
     Route::get('/', [NewsController::class, 'index'])->name('index');
     Route::get('/create', [NewsController::class, 'create'])->name('create');
+    Route::get('/show', [NewsController::class, 'show'])->name('show');
     Route::post('/', [NewsController::class, 'store'])->name('store');
+    Route::get('/{id}/toggle-status', [NewsController::class, 'togglePublishStatus'])->name('toggle_status')->where('id', '[0-9]+');
 });
 
 
