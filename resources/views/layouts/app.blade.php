@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/custom.css">
-   
-    
+
+
     <title>@yield('titleblock')</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,13 +24,13 @@
 </head>
   <body>
     @include('layouts.navbar')
-    
+
     <main role="main">
           @yield('side_panel')
           @yield('content')
     </main>
           @include('layouts.footer')
-    
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

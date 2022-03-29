@@ -13,8 +13,8 @@
 @endif
 
 @if(\Session::has('success'))
-    <div>
-        <span>
+    <div class="main">
+        <span class="text-success">
             {!! \Session::get('success') !!}
         </span>
     </div>
@@ -22,7 +22,7 @@
 
 @if(\Session::has('error'))
     <div>
-        <span>
+        <span class="text-danger">
             {!! \Session::get('error') !!}
         </span>
     </div>

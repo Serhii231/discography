@@ -16,13 +16,18 @@
                 </ul>
             </div>
             @endif
+<div class="main">
+    <div class="form-controls"></div>
     <form action="{{route('authorization_submit')}}" method = "POST">
         @csrf
-        <input type="text" name = "username" placeholder="Логін">
-        <br>
-        <br>
-        <input type="password" name='password' placeholder="Пароль">
-        <br><br>
-        <input type="submit" value = "Увійти">
+        <div class="form-group" >
+            <input class="form-control" type="text" name = "username" placeholder="Логін">
+            <br>
+            <br>
+            <input class="form-control" type="password" name='password' placeholder="Пароль">
+            <br><br>
+            <input class="form-control" type="submit" value = "Увійти">
+        </div>
     </form>
+</div>
 @endsection

@@ -18,8 +18,7 @@ use Illuminate\Support\Facades\Hash;
 Route::get('/', [MainController::class, 'index'])->name('main');;
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');;
-
-
+Route::post('/about/offers', [AboutController::class, 'offers'])->name('about.offers');
 
 Route::get('/discography-histories', [DiscographyHistoryController::class, 'index'])
     ->name('discography_histories');
@@ -30,6 +29,7 @@ Route::POST('/registration/submit', [RegistrationController::class, 'registratio
 Route::POST('/authorization_submit', [AuthorizationController::class, 'authorization'])->name('authorization_submit');
 Route::get('/exit', [AuthorizationController::class, 'exit'])->name('exit');
 Route::get('/adminpanel', [AdminPanelController::class, 'index'])->name('adminpanel.index');
+
 Route::group([
     'prefix' => 'news',
     'as' => 'news.'
@@ -38,7 +38,20 @@ Route::group([
     Route::get('/create', [NewsController::class, 'create'])->name('create');
     Route::get('/show', [NewsController::class, 'show'])->name('show');
     Route::post('/', [NewsController::class, 'store'])->name('store');
-    Route::get('/{id}/toggle-status', [NewsController::class, 'togglePublishStatus'])->name('toggle_status')->where('id', '[0-9]+');
+    Route::get('/{id}/toggle-status', [NewsController::class, 'togglePublishStatus'])
+        ->name('toggle_status')
+        ->where('id', '[0-9]+');
+
+    Route::get('/{id}/index/update', [NewsController::class, 'index_update'])
+        ->name('index.update')
+        ->where('id', '[0-9]+');
+    Route::get('/{id}/destroy', [NewsController::class, 'destroy'])
+        ->name('destroy')
+        ->where('id', '[0-9]+');
+    Route::post('/{id}/update', [NewsController::class, 'update'])
+        ->name('update')
+        ->where('id', '[0-9]+');
+    Route::get('/{slug}', [NewsController::class, 'one_news'])->name('one');
 });
 
 

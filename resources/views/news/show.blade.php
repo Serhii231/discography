@@ -6,7 +6,7 @@
 <div class="container">
     @include('layouts.side_panel')
     @include('layouts.allerts')
-    
+
     <div class="main">
         <br><br>
         <table class="table table-striped table-dark">
@@ -23,16 +23,18 @@
             @foreach ($news as $new)
                 <tr>
                 <th scope="row">{{ $new->id }}</th>
-                <td><a href="">{{$new->title}}</a></td>
+                <td><a href="{{ route('news.one', ['slug' => $new->slug]) }}">{{$new->title}}</a></td>
                 <td>{{$new->created_at}}</td>
                 <td><a href="{{ route('news.toggle_status', ['id' => $new->id]) }}"> {{ $new->publish ? 'Опубліковано' : 'Не опубліковано' }} </a></td>
+                <td><a href="{{ route('news.index.update', ['id' => $new->id]) }}"> Редагувати </a></td>
+                <td><a href="{{ route('news.destroy', ['id' => $new->id]) }}"> Видалити </a></td>
                 </tr>
             @endforeach
-            
+
             </tbody>
         </table>
     </div>
-</div> 
+</div>
 @endsection
 
 @push('javascript')

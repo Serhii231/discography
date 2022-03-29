@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\NewsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,11 @@ class News extends Model
         'foto',
         'user_id',
         'publish',
+        'slug',
     ];
+
+    protected static function newFactory(): NewsFactory
+    {
+        return NewsFactory::new();
+    }
 }

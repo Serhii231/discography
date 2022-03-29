@@ -3,7 +3,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        
+
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item {{ \Request::route()->getName() == 'main' ? 'active' : '' }}">
@@ -19,32 +19,21 @@
             <a class="nav-link" href="{{ route('about') }}">@lang('menu.navigation.about')</a>
           </li>
           @auth()
-          <li class="nav-item {{ \Request::route()->getName() == 'authorization' ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('news.create') }}">@lang('menu.navigation.add_news')</a>
-          </li>
-          
+
           <li>
           <div class="dropdown">
             <button class="dropbtn">{{ auth()->user()->username }}</button>
             <div class="dropdown-content">
               <a href="#">@lang('menu.navigation.personal_page')</a>
               <a href="#">@lang('menu.navigation.settings')</a>
+
               @if(auth()->user()->admin == true)
-              <a href="{{ route('adminpanel.index') }}">@lang('menu.navigation.adminpanel')</a>
+                <a href="{{ route('adminpanel.index') }}">@lang('menu.navigation.adminpanel')</a>
               @endif
-              <a href="{{ route('news.create') }}">@lang('menu.navigation.add_news')</a>
+
               <a href="{{ route('exit') }}">@lang('menu.navigation.exit')</a>
             </div>
           </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{{ url()->full() }}" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">@lang('menu.navigation.personal_page')</a>
-              <a class="dropdown-item" href="#">@lang('menu.navigation.settings')</a>
-              <a class="dropdown-item" href="{{ route('news.create') }}">@lang('menu.navigation.add_news')</a>
-              <a class="dropdown-item" href="{{ route('exit') }}">@lang('menu.navigation.exit')</a>
-            </div>
           </li>
           @else
           <li class="nav-item {{ \Request::route()->getName() == 'authorization' ? 'active' : '' }}">

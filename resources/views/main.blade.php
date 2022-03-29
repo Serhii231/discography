@@ -10,11 +10,12 @@
       <div class="jumbotron">
       <div class="bg"></div>
         <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
-          <p> 
+          <h1 class="display-3">Привіт, рокер</h1>
+          <p>
+
             «Slipknot» [ˈslɪp.nɒt] (в переводе с англ. — «скользящий узел», «петля», «удавка») — американская ню-метал-группа, образованная в сентябре 1995 года в Айове, США. Альбомы группы получили статус платиновых, всего продано более 30 млн копий по всему миру из которых 6 миллионов в США. В 2006 году группа получила свою единственную на сегодняшний день премию «Грэмми». Коллектив известен тем, что его участники на концертах, фотосессиях и интервью носят маски и специальные комбинезоны. Маски видоизменяются с выходом нового альбома. На данный момент группа выпустила шесть официальных студийных альбомов, включая новый We Are Not Your Kind.
           </p>
-          <p><a class="btn btn-primary btn-lg" href="{{ route('about') }}" role="button">Learn more »</a></p>
+          <p><a class="btn btn-primary btn-lg" href="{{ route('about') }}" role="button">Показати більше »</a></p>
         </div>
       </div>
 
@@ -24,9 +25,9 @@
             @foreach($news as $new)
             @if($new->publish == true)
                 <div class="col-md-4">
-                    <h3>{{ $new->title }}</h3>
+                    <h4>{{ $new->title }}</h4>
                     <p>{{ Str::words($new->content, 15) }}</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                    <p><a class="btn btn-secondary" href="{{ route('news.one', ['slug' => $new->slug]) }}" role="button">Переглянути новину»</a></p>
                 </div>
                 @endif
             @endforeach

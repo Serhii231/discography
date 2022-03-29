@@ -8,7 +8,7 @@
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
           Новини
         </button>
-        <div class="collapse show" id="home-collapse">
+        <div class="collapse" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="{{ route('news.create') }}" class="link-dark rounded">@lang('menu.navigation.add_news')</a></li>
             <li><a href="{{ route('news.show') }}" class="link-dark rounded">Список всіх новин</a></li>
@@ -17,14 +17,12 @@
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Панель
+          Дискографія
         </button>
         <div class="collapse" id="dashboard-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Обзор</a></li>
-            <li><a href="#" class="link-dark rounded">Еженедельно</a></li>
-            <li><a href="#" class="link-dark rounded">Ежемесячно</a></li>
-            <li><a href="#" class="link-dark rounded">Ежегодно</a></li>
+            <li><a href="#" class="link-dark rounded">Добавити альбом</a></li>
+            <li><a href="#" class="link-dark rounded">Список всіх альбомів</a></li>
           </ul>
         </div>
       </li>

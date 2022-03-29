@@ -4,11 +4,12 @@
 
 @section('content')
 
-<h3>Реєстрація</h3> 
-            
-            <form  action="{{route('registration_check')}}" method="POST">
-            @csrf
-            <br>
+    <h3>Реєстрація</h3>
+    <div class="main">
+        <div class="form-group">
+            <form class="form-group" action="{{route('registration_check')}}" method="POST">
+                @csrf
+                <br>
                 <input type="text" size="50" name="name" placeholder="Ім'я" id='name'>
                 <br>
                 <br>
@@ -25,4 +26,6 @@
                 <br><br>
                 <input type="submit" value="Зареєструватися">
             </form>
+        </div>
+    </div>
 @endsection
